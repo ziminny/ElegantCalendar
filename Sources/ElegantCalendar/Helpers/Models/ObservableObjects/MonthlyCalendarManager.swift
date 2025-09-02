@@ -1,7 +1,6 @@
 // Kevin Li - 5:20 PM - 6/14/20
 
 import Combine
-import ElegantPages
 import SwiftUI
 
 public class MonthlyCalendarManager: ObservableObject, ConfigurationDirectAccess {

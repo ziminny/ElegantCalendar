@@ -1,7 +1,6 @@
 // Kevin Li - 5:25 PM - 6/10/20
 
 import Combine
-import ElegantPages
 import SwiftUI
 
 public class ElegantCalendarManager: ObservableObject {
