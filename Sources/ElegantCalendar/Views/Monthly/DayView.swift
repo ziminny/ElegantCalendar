@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct DayView: View, MonthlyCalendarManagerDirectAccess {
+struct DayView: View, @preconcurrency MonthlyCalendarManagerDirectAccess {
 
     @Environment(\.calendarTheme) var theme: CalendarTheme
 

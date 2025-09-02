@@ -19,7 +19,7 @@ public extension MonthlyCalendarDataSource {
 
     func calendar(canSelectDate date: Date) -> Bool { true }
 
-    func calendar(viewForSelectedDate date: Date, dimensions size: CGSize) -> AnyView {
+    @MainActor func calendar(viewForSelectedDate date: Date, dimensions size: CGSize) -> AnyView {
         EmptyView().erased
     }
 

@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct SmallDayView: View, YearlyCalendarManagerDirectAccess {
+struct SmallDayView: View, @preconcurrency YearlyCalendarManagerDirectAccess {
 
     let calendarManager: YearlyCalendarManager
 

@@ -25,7 +25,7 @@ public struct CalendarConfiguration: Equatable {
 
 extension CalendarConfiguration {
 
-    static let mock = CalendarConfiguration(
+    nonisolated(unsafe) static let mock = CalendarConfiguration(
         startDate: .daysFromToday(-365*2),
         endDate: .daysFromToday(365*2))
 

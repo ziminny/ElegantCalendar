@@ -3,7 +3,7 @@
 import ElegantPages
 import SwiftUI
 
-public struct MonthlyCalendarView: View, MonthlyCalendarManagerDirectAccess {
+public struct MonthlyCalendarView: View, @preconcurrency MonthlyCalendarManagerDirectAccess {
 
     var theme: CalendarTheme = .default
     public var axis: Axis = .vertical
@@ -84,13 +84,13 @@ struct MonthlyCalendarView_Previews: PreviewProvider {
 
 private extension PageTurnType {
 
-    static var monthlyEarlyCutoff: PageTurnType = .earlyCutoff(config: .monthlyConfig)
+    nonisolated(unsafe) static var monthlyEarlyCutoff: PageTurnType = .earlyCutoff(config: .monthlyConfig)
 
 }
 
 public extension EarlyCutOffConfiguration {
 
-    static let monthlyConfig = EarlyCutOffConfiguration(
+    nonisolated(unsafe) static let monthlyConfig = EarlyCutOffConfiguration(
         scrollResistanceCutOff: 40,
         pageTurnCutOff: 80,
         pageTurnAnimation: .spring(response: 0.3, dampingFraction: 0.95))

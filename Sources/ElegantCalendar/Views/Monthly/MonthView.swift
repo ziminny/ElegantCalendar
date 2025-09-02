@@ -4,7 +4,7 @@ import SwiftUI
 
 fileprivate let daysOfWeekInitials = ["D", "S", "T", "Q", "Q", "S", "S"]
 
-struct MonthView: View, MonthlyCalendarManagerDirectAccess {
+struct MonthView: View, @preconcurrency MonthlyCalendarManagerDirectAccess {
 
     @Environment(\.calendarTheme) var theme: CalendarTheme
 
@@ -122,7 +122,7 @@ private extension MonthView {
 
 }
 
-private struct CalendarAccessoryView: View, MonthlyCalendarManagerDirectAccess {
+private struct CalendarAccessoryView: View, @preconcurrency MonthlyCalendarManagerDirectAccess {
 
     let calendarManager: MonthlyCalendarManager
 

@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-public struct YearlyCalendarView: View, YearlyCalendarManagerDirectAccess {
+public struct YearlyCalendarView: View, @preconcurrency YearlyCalendarManagerDirectAccess {
 
     var theme: CalendarTheme = .default
     public var axis: Axis = .vertical

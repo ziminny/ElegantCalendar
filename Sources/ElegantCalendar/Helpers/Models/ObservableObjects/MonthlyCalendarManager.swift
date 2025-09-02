@@ -53,7 +53,7 @@ public class MonthlyCalendarManager: ObservableObject, ConfigurationDirectAccess
 
 extension MonthlyCalendarManager {
 
-    func configureNewMonth(at page: Int) {
+    @MainActor func configureNewMonth(at page: Int) {
         if months[page] != currentMonth {
             currentMonth = months[page]
             selectedDate = nil
@@ -72,26 +72,24 @@ extension MonthlyCalendarManager {
 
 extension MonthlyCalendarManager {
 
-    @discardableResult
+    @MainActor @discardableResult
     public func scrollBackToToday() -> Bool {
         scrollToDay(Date())
     }
 
-    @discardableResult
+    @MainActor @discardableResult
     public func scrollToDay(_ day: Date, animated: Bool = true) -> Bool {
         let didScrollToMonth = scrollToMonth(day, animated: animated)
         let canSelectDay = datasource?.calendar(canSelectDate: day) ?? true
 
         if canSelectDay {
-            DispatchQueue.main.asyncAfter(deadline: .now()+0.15) {
-                self.dayTapped(day: day, withHaptic: !didScrollToMonth)
-            }
+            self.dayTapped(day: day, withHaptic: !didScrollToMonth)
         }
 
         return canSelectDay
     }
 
-    func dayTapped(day: Date, withHaptic: Bool) {
+    @MainActor func dayTapped(day: Date, withHaptic: Bool) {
         if allowsHaptics && withHaptic {
             UIImpactFeedbackGenerator.generateSelectionHaptic()
         }
@@ -120,8 +118,8 @@ extension MonthlyCalendarManager {
 
 extension MonthlyCalendarManager {
 
-    static let mock = MonthlyCalendarManager(configuration: .mock)
-    static let mockWithInitialMonth = MonthlyCalendarManager(configuration: .mock, initialMonth: .daysFromToday(60))
+    nonisolated(unsafe) static let mock = MonthlyCalendarManager(configuration: .mock)
+    nonisolated(unsafe) static let mockWithInitialMonth = MonthlyCalendarManager(configuration: .mock, initialMonth: .daysFromToday(60))
 
 }
 
@@ -166,11 +164,11 @@ extension MonthlyCalendarManagerDirectAccess {
         calendarManager.selectedDate
     }
 
-    func configureNewMonth(at page: Int) {
+    @MainActor func configureNewMonth(at page: Int) {
         calendarManager.configureNewMonth(at: page)
     }
 
-    func scrollBackToToday() {
+    @MainActor func scrollBackToToday() {
         calendarManager.scrollBackToToday()
     }
 

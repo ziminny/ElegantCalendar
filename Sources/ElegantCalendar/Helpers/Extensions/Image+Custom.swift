@@ -4,7 +4,7 @@ import SwiftUI
 
 extension Image {
 
-    static var uTurnLeft: Image = {
+    nonisolated(unsafe) static var uTurnLeft: Image = {
         let image = UIImage(systemName: "arrowtriangle.left.fill")!
         return Image(uiImage: image)
     }()

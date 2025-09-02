@@ -77,8 +77,8 @@ extension YearlyCalendarManager {
 
 extension YearlyCalendarManager {
 
-    static let mock = YearlyCalendarManager(configuration: .mock)
-    static let mockWithInitialYear = YearlyCalendarManager(configuration: .mock, initialYear: .daysFromToday(365))
+    nonisolated(unsafe) static let mock = YearlyCalendarManager(configuration: .mock)
+    nonisolated(unsafe) static let mockWithInitialYear = YearlyCalendarManager(configuration: .mock, initialYear: .daysFromToday(365))
 
 }
 

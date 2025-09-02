@@ -67,11 +67,11 @@ public class ElegantCalendarManager: ObservableObject {
         monthlyManager.scrollToMonth(month, animated: animated)
     }
 
-    public func scrollBackToToday(animated: Bool = true) {
+    @MainActor public func scrollBackToToday(animated: Bool = true) {
         scrollToDay(Date(), animated: animated)
     }
 
-    public func scrollToDay(_ day: Date, animated: Bool = true) {
+    @MainActor public func scrollToDay(_ day: Date, animated: Bool = true) {
         monthlyManager.scrollToDay(day, animated: animated)
     }
 
@@ -83,9 +83,7 @@ extension ElegantCalendarManager {
     // user presses the month text to scroll to the yearly calendar view
     func scrollToYearIfOnYearlyView(_ page: Int) {
         if page == 0 {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-                self.yearlyManager.scrollToYear(self.currentMonth)
-            }
+            self.yearlyManager.scrollToYear(self.currentMonth)
         }
     }
 
@@ -96,9 +94,7 @@ extension ElegantCalendarManager: ElegantCalendarCommunicator {
     public func scrollToMonthAndShowMonthlyView(_ month: Date) {
         pagesManager.scroll(to: 1)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
-            self.scrollToMonth(month)
-        }
+        self.scrollToMonth(month)
     }
 
     public func showYearlyView() {
@@ -127,7 +123,7 @@ extension ElegantCalendarDirectAccess {
 
 private extension PageTurnType {
 
-    static let calendarEarlySwipe: PageTurnType = .earlyCutoff(
+    nonisolated(unsafe) static let calendarEarlySwipe: PageTurnType = .earlyCutoff(
         config: .init(scrollResistanceCutOff: 40,
                       pageTurnCutOff: 90,
                       pageTurnAnimation: .interactiveSpring(response: 0.35, dampingFraction: 0.86, blendDuration: 0.25)))

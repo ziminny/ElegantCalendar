@@ -14,28 +14,28 @@ public struct CalendarTheme: Equatable, Hashable {
 
 public extension CalendarTheme {
 
-    static let allThemes: [CalendarTheme] = [.brilliantViolet, .craftBrown, .fluorescentPink, .kiwiGreen, .mauvePurple, .orangeYellow, .red, .royalBlue]
+    nonisolated(unsafe) static let allThemes: [CalendarTheme] = [.brilliantViolet, .craftBrown, .fluorescentPink, .kiwiGreen, .mauvePurple, .orangeYellow, .red, .royalBlue]
 
-    static let brilliantViolet = CalendarTheme(primary: .brilliantViolet)
-    static let craftBrown = CalendarTheme(primary: .craftBrown)
-    static let fluorescentPink = CalendarTheme(primary: .fluorescentPink)
-    static let kiwiGreen = CalendarTheme(primary: .kiwiGreen)
-    static let mauvePurple = CalendarTheme(primary: .mauvePurple)
-    static let orangeYellow = CalendarTheme(primary: .orangeYellow)
-    static let red = CalendarTheme(primary: .red)
-    static let royalBlue = CalendarTheme(primary: .royalBlue)
+    nonisolated(unsafe) static let brilliantViolet = CalendarTheme(primary: .brilliantViolet)
+    nonisolated(unsafe) static let craftBrown = CalendarTheme(primary: .craftBrown)
+    nonisolated(unsafe) static let fluorescentPink = CalendarTheme(primary: .fluorescentPink)
+    nonisolated(unsafe) static let kiwiGreen = CalendarTheme(primary: .kiwiGreen)
+    nonisolated(unsafe) static let mauvePurple = CalendarTheme(primary: .mauvePurple)
+    nonisolated(unsafe) static let orangeYellow = CalendarTheme(primary: .orangeYellow)
+    nonisolated(unsafe) static let red = CalendarTheme(primary: .red)
+    nonisolated(unsafe) static let royalBlue = CalendarTheme(primary: .royalBlue)
 
 }
 
 extension CalendarTheme {
 
-    static let `default`: CalendarTheme = .royalBlue
+    nonisolated(unsafe) static let `default`: CalendarTheme = .royalBlue
 
 }
 
 struct CalendarThemeKey: EnvironmentKey {
 
-    static let defaultValue: CalendarTheme = .default
+    nonisolated(unsafe) static let defaultValue: CalendarTheme = .default
 
 }
 

@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct SmallMonthView: View, YearlyCalendarManagerDirectAccess {
+struct SmallMonthView: View, @preconcurrency YearlyCalendarManagerDirectAccess {
 
     @Environment(\.colorScheme) var colorScheme
 
