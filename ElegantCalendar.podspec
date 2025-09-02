@@ -12,5 +12,6 @@ Color pallet.
   s.source           = { :git => 'https://github.com/ziminny/ElegantCalendar.git', :tag => s.version.to_s }
   s.ios.deployment_target = '16.0'
   s.source_files     = 'Sources/**/*.{swift,h}'
-  s.swift_versions   = ['5.9', '6.0']
+  s.swift_versions   = ['5.5', '6.0']
+  s.dependency 'ElegantPages', '~> 1.0.0'
 end

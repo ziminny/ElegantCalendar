@@ -1,5 +1,6 @@
 // Kevin Li - 6:19 PM - 6/6/20
 
+import ElegantPages
 import SwiftUI
 
 public struct ElegantCalendarView: View {

@@ -1,4 +1,5 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.1
+
 import PackageDescription
 
 let package = Package(
@@ -9,23 +10,14 @@ let package = Package(
     products: [
         .library(
             name: "ElegantCalendar",
-            targets: ["ElegantCalendar"]
-        ),
-        .library(
-            name: "ElegantPages",
-            targets: ["ElegantPages"]
-        ),
+            targets: ["ElegantCalendar"]),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(path: "https://github.com/ziminny/ElegantPages")
+    ],
     targets: [
         .target(
-            name: "ElegantPages",
-            path: "Sources/ElegantPages"
-        ),
-        .target(
             name: "ElegantCalendar",
-            dependencies: ["ElegantPages"],
-            path: "Sources/ElegantCalendar"
-        )
+            dependencies: ["ElegantPages"])
     ]
 )
