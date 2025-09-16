@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ElegantPages",
+        "repositoryURL": "https://github.com/ziminny/ElegantPages.git",
+        "state": {
+          "branch": null,
+          "revision": "9989c7febdc2d2b116f6605606444e7627de2204",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

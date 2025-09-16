@@ -13,7 +13,7 @@ let package = Package(
             targets: ["ElegantCalendar"]),
     ],
     dependencies: [
-        .package(path: "https://github.com/ziminny/ElegantPages")
+        .package(url: "https://github.com/ziminny/ElegantPages.git", from: "1.0.0")
     ],
     targets: [
         .target(
